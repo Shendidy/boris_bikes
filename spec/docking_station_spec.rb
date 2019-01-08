@@ -1,4 +1,5 @@
-#require docking_station.#!/usr/bin/env ruby -wKU
+require 'docking_station'
 
 describe DockingStation do
+  it {expect(DockingStation.release_bike).to eq("Released!")}
 end
