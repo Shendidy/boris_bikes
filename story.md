@@ -1,18 +1,16 @@
 Nouns (Objects):
-person
-bike
-docking station
+
+person, bike, docking station
 
 
 Verbs (Methods):
-use_a_bike
-release_a_bike
-check_if_bike_is_working
+
+use_a_bike, release_a_bike, check_if_bike_is_working
 
 | Objects | Messages |
 |---|---|
-|Person | use_a_bike |
-|bike | release_a_bike |
-|docking station | check_if_bike_is_working |
+|Person |  |
+|bike | check_bike? |
+|docking station | release_bike |
 
-Person -> check if bike is good -> if yes docking_station to release bike.
+bike -> check_bike? -> if yes docking_station to release bike.
