@@ -1,5 +1,5 @@
 class Bike
   def working?
-    return "I'm a new bike!"
+    true
   end
 end
