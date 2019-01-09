@@ -10,4 +10,6 @@ describe DockingStation do
     expect(bike.working?).to eq true
     #expect(instance.release_bike.working?).to eq true
   end
+
+  it {is_expected.to respond_to :dock_bike}
 end
