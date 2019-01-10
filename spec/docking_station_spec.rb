@@ -24,7 +24,6 @@ describe DockingStation do
   subject(:instance) {described_class.new(0,[])}
 
     it "Should raise an error" do
-      bike2 = instance.release_bike
-      expect{bike2}.to raise_error(RuntimeError)
+      expect { instance.release_bike }.to raise_error("No bikes available")
     end
 end

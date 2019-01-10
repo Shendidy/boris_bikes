@@ -18,7 +18,7 @@ class DockingStation
       @docked -= 1
       bike = Bike.new
     else
-      fail "No bikes availables8767"
+      raise "No bikes available"
     end
   end
 
