@@ -7,15 +7,19 @@ class DockingStation
 
   # return a bike
 
-  def initialize(docked = 0, bikes = [])
+  def initialize(docked = 1, bikes = [])
      @docked = docked
      @bikes = bikes
      # @capacity = capacity
    end
 
   def release_bike
-    @docked -= 1
-    bike = Bike.new
+    if @docked > 0
+      @docked -= 1
+      bike = Bike.new
+    else
+      fail "No bikes availables8767"
+    end
   end
 
   def dock_bike(bike)
@@ -25,21 +29,3 @@ class DockingStation
   end
 
 end
-
-#
-# def release_bike(1)
-#   return 0
-# end
-#
-# def dock_bike(1)
-#   return 1
-# end
-#
-#
-# def print_name
-#   puts "hello world"
-# end
-#
-# def print_name(name)
-#   puts "#{name}
-# end
