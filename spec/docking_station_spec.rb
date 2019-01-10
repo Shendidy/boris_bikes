@@ -20,10 +20,20 @@ describe DockingStation do
   end
 end
 
+#if docked bikes = 0
 describe DockingStation do
   subject(:instance) {described_class.new(0,[])}
 
     it "Should raise an error" do
-      expect { instance.release_bike }.to raise_error("No bikes available")
+      expect { instance.release_bike }.to raise_error("No bikes available!")
+    end
+end
+
+#if docked capacity = 2 and docked bikes = 2
+describe DockingStation do
+  subject(:instance) {described_class.new(2, ["bike1", "bike2"], 2)}
+
+    it "Should raise an error" do
+      expect { instance.dock_bike("bike3") }.to raise_error("No room for more bikes!")
     end
 end
