@@ -9,8 +9,16 @@ class DockingStation
      @capacity = capacity
    end
 
+  def full?
+    @docked >= @capacity ? true : false
+  end
+
+  def empty?
+    @docked > 0 ? false : true
+  end
+
   def release_bike
-    if @docked > 0
+    if !empty?
       @docked -= 1
       bike = Bike.new
     else
@@ -19,7 +27,7 @@ class DockingStation
   end
 
   def dock_bike(bike)
-    if @docked != @capacity
+    if !full?
       @bikes << bike
       @docked += 1
       return @bikes
@@ -28,4 +36,5 @@ class DockingStation
     end
   end
 
+private :full?, :empty?
 end
