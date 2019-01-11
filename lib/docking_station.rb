@@ -1,16 +1,17 @@
 require_relative './bike.rb'
 
 class DockingStation
-  attr_reader :bikes
+  attr_reader :bikes, :capacity
   DEFAULT_CAPACITY = 20
 
-  def initialize(docked = 1, bikes = [])
-     @docked = docked
-     @bikes = bikes
+  def initialize(capacity =  DEFAULT_CAPACITY, docked = 1, bikes = [])
+    @capacity = capacity
+    @docked = docked
+    @bikes = bikes
    end
 
   def full?
-    @docked >= DEFAULT_CAPACITY ? true : false
+    @docked >= @capacity ? true : false
   end
 
   def empty?

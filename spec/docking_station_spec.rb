@@ -22,7 +22,7 @@ end
 
 #if docked bikes = 0
 describe DockingStation do
-  subject(:instance) {described_class.new(0,[])}
+  subject(:instance) {described_class.new(DockingStation::DEFAULT_CAPACITY, 0,[])}
 
     it "Should raise an error" do
       expect { instance.release_bike }.to raise_error("No bikes available!")
@@ -31,9 +31,24 @@ end
 
 #if docked capacity = 2 and docked bikes = 2
 describe DockingStation do
-  subject(:instance) {described_class.new(DockingStation::DEFAULT_CAPACITY, ["bike1", "bike2"])}
+  subject(:instance) {described_class.new(DockingStation::DEFAULT_CAPACITY, DockingStation::DEFAULT_CAPACITY, ["bike1", "bike2"])}
 
     it "Should raise an error" do
       expect { instance.dock_bike("bike3") }.to raise_error("No room for more bikes!")
     end
+end
+
+describe DockingStation do
+  context do
+  subject(:instance) {described_class.new(28)}
+
+    it "Should raise an error" do
+      expect(instance.instance_variable_get(:@capacity)).to eq (28)
+    end
+  end
+  context do
+    it "Check default capacity = 20" do
+      expect(subject.capacity).to eq 20
+    end
+  end
 end
