@@ -31,7 +31,7 @@ end
 
 #if docked capacity = 2 and docked bikes = 2
 describe DockingStation do
-  subject(:instance) {described_class.new(2, ["bike1", "bike2"], 2)}
+  subject(:instance) {described_class.new(DockingStation::DEFAULT_CAPACITY, ["bike1", "bike2"])}
 
     it "Should raise an error" do
       expect { instance.dock_bike("bike3") }.to raise_error("No room for more bikes!")
